@@ -1,3 +1,16 @@
+# Course: Associate ML Practitioner
+
+4 modules from the Machine Learning Practitioner Learning Plan:
+
+- [Data Preparation for Machine Learning](https://customer-academy.databricks.com/learn/course/2343/data-preparation-for-machine-learning?generated_by=917425&hash=c45cd7d518368d1dd0746ccc0a19826c68ff641c&utm_source=daiwt_1_event&utm_medium=community&utm_content=mlwd)
+- [Machine Learning Model Development](https://customer-academy.databricks.com/learn/course/2390/machine-learning-model-development?generated_by=917425&hash=a8b9605bfd10c599d7a8563a8cf9013e6f491f75&utm_source=daiwt_1_event&utm_medium=community&utm_content=mlwd)
+- [Machine Learning Model Deployment](https://customer-academy.databricks.com/learn/course/2395/machine-learning-model-deployment?generated_by=917425&hash=a19ea7e8cd9d9c2f76f4cb63f43fd0b2a697ad93&utm_source=daiwt_1_event&utm_medium=community&utm_content=mlwd)
+- [Machine Learning Operations](https://customer-academy.databricks.com/learn/course/2400/machine-learning-operations?generated_by=917425&hash=3fd9ee3f4bbb79c6585f27e2c60d56a9feb3e849&utm_source=daiwt_1_event&utm_medium=community&utm_content=mlwd)
+
+
+
+
+
 # Databricks Certified Machine Learning Associate
 
 * [Databricks](https://www.databricks.com/learn/certification/machine-learning-associate?itm_source=www&itm_category=learn&itm_page=certification&itm_location=ML%20Engineer%20&itm_component=card&itm_offer=machine-learning-associate)
