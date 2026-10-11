@@ -1,20 +1,26 @@
-# Learning goals
+# Data Preparation for Machine Learning
 
-1. Describe Databricks Data Intelligence Platform and its features for machine learning
-2. Explain data storage and governance features on Databricks
-3. Perform exploratory data analysis and feature engineering using Spark and integrated visualization tools
-4. Perform data pre-processing for missing data handling, data encoding, and data standarization
-5. Utilize Feature Store storing and retrieving features
+* [Introduction](01_introduction/)
+* [Managing and Exploring Data](02_managing-and-exploring-data)
 
-# Prerequisites / Technical Consideration
+ ```mermaid
+---
+config:
+  treeView:
+    showIcons: true
+---
+treeView-beta
+├── 01_data-preparation-for-ml/
+│   ├── 01_introduction/
+│   ├── 02_managing-and-exploring-data/
+│	│   ├── 01_introduction.md
+│	│   ├── 02_managing-and-exploring-data.md
+│   └── README.md
+├── 02_ml-model-development/
+├── 03_ml-model-deployment/
+├── 04_ml-operations/
+└── README.md
+ ```
 
-## Prerequisites
 
-* Familiarity with Databricks workspace and notebooks
-* Familiarity with Delta Lake and Lakehouse
-* Intermediate level knowledge of Python
 
-## Technical Consideration
-
-* Cluster running on DBR ML 13.3+
-* Unit Catalog enabled workspace
