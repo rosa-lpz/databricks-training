@@ -23,9 +23,9 @@ treeView-beta
         03_ml-model-deployment
         04_ml-operations
         README.md
-	data-analyst-associate
+	data-analyst-associate/
 		README.md
-    data-engineer-associate
+    data-engineer-associate/
     	README.md
     README.md
 
