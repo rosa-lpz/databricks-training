@@ -6,10 +6,10 @@ This lecture introduces the four platform building blocks used throughout the co
 
 This lecture covers 4 sections that build on each other:
 
-- **[A. The Databricks Data Intelligence Platform](#a-the-databricks-data-intelligence-platform-for-ml)**. The unified lakehouse architecture and its impact on ML workflows
-- **[B. Notebooks for ML Workflows](b-notebooks-for-ml-workflows)**. How Databricks notebooks enable exploratory data analysis, collaboration, and reproducibility
-- **[C. Unity Catalog](c-unity-catalog)**. The governance model for data, models, and code, including the three-level namespace
-- **[D. Delta Lake for ML](d-delta-lake-for-ml)**. Reliable, reproducible storage and time travel for machine learning datasets
+- **[The Databricks Data Intelligence Platform](#the-databricks-data-intelligence-platform-for-ml)**. The unified lakehouse architecture and its impact on ML workflows
+- **[Notebooks for ML Workflows](#notebooks-for-ml-workflows)**. How Databricks notebooks enable exploratory data analysis, collaboration, and reproducibility
+- **[Unity Catalog](#unity-catalog)**. The governance model for data, models, and code, including the three-level namespace
+- **[Delta Lake for ML](#delta-lake-for-ml)**. Reliable, reproducible storage and time travel for machine learning datasets
 
 
 
@@ -24,9 +24,9 @@ By the end of this lecture, you will be able to:
 
 
 
-## A. The Databricks Data Intelligence Platform for ML
+## The Databricks Data Intelligence Platform for ML
 
-### A1. The Databricks Data Intelligence Platform
+### The Databricks Data Intelligence Platform
 
 The **Databricks Data Intelligence Platform** is built on a *lakehouse* served by a **Data Intelligence Engine** that uses generative AI to understand your data, organized around three properties:
 
@@ -40,7 +40,7 @@ The **Databricks Data Intelligence Platform** is built on a *lakehouse* served b
 
 
 
-### A2. Workloads on the Platform
+### Workloads on the Platform
 
 The platform supports many workload categories on top of a single open storage and governance foundation. The current product navigation on databricks.com lists Data Engineering, Data Warehousing, AI, BI, Database, Application Development, Governance, Sharing, and more.
 
@@ -50,13 +50,13 @@ The platform supports many workload categories on top of a single open storage a
 
 
 
-### A2. (2nd verion-Minerva)
+### (2nd verion-Minerva)
 
  ![a2_2nd-minerva](img/02/a2_2nd-minerva.png)
 
  [Jump back to the overview](#overview)
 
-### A3. Platform Workloads and Their Relevance to ML
+### Platform Workloads and Their Relevance to ML
 
 Each workload category has a distinct role in an ML project:
 
@@ -70,15 +70,15 @@ Each workload category has a distinct role in an ML project:
 
 
 
-### A4. Where This Module Fits
+### Where This Module Fits
 
 ML on Databricks spans **data → features → training → serving → governance**. This module covers only the leftmost stages: **loading and exploring data**. Later modules build on this foundation.
 
 ![a4_workflow](img/02/a4_workflow.png)
 
-## B. Notebooks for ML Workflows
+## Notebooks for ML Workflows
 
-### B1. Why Databricks Notebooks?
+### Why Databricks Notebooks?
 
 Notebooks are the primary surface for exploratory ML work on Databricks.
 
@@ -96,7 +96,7 @@ Useful magic commands you'll see in this module: `%run`, `%pip`, `%sql`, `%md`, 
 
 
 
-### B2. Quick Exploratory Data Analysis
+### Quick Exploratory Data Analysis
 
 Two clicks worth of EDA you'll use constantly:
 
@@ -105,7 +105,7 @@ Two clicks worth of EDA you'll use constantly:
 
 Both are exposed by `display(df)`. The next few cells run the pattern on the telco dataset the demo and lab will use.
 
-### B3. Read the CSV file into a Spark DataFrame
+### Read the CSV file into a Spark DataFrame
 
 ```python
 dataset_path = "../telco-customer-churn.csv"
@@ -118,7 +118,7 @@ The output from the code is:
 
 Rows: 7,043 Columns: 21
 
-### B4. Display the DataFrame
+### Display the DataFrame
 
 Use the **`display()`** function on the DataFrame to view the table. Click the "+" icon above the output to add a visualization.
 
@@ -140,7 +140,7 @@ display(telco_df)
 
 
 
-### B5. Multi-Language Notebooks in Practice
+### Multi-Language Notebooks in Practice
 
 The code below demonstrates how to use SQL to quickly aggregate and summarize the Churn class distribution from the telco dataset.
 
@@ -169,7 +169,7 @@ ORDER BY n DESC;
 | 1     | No    | 5,174 |
 | 2     | Yes   | 1,869 |
 
-### B6. Genie Code for ML EDA
+### Genie Code for ML EDA
 
 **Genie Code** is the AI authoring assistant available in the notebook side panel. For ML EDA, it can generate visualization and analysis code from natural language — no need to remember matplotlib or seaborn syntax.
 
@@ -195,9 +195,9 @@ Using the Spark DataFrame `telco_df`, convert it to pandas and perform EDA as fo
 
 
 
-## C. Unity Catalog
+## Unity Catalog
 
-### C1. The Unity Catalog Architecture
+### The Unity Catalog Architecture
 
 - Unity Catalog sits between the **compute engine** you use to query data and the **open storage formats** your data is written in.
 - Compute engines (Databricks Runtime, Spark, and others) talk to UC over the **Unity REST** and **Iceberg REST** APIs.
@@ -217,7 +217,7 @@ Using the Spark DataFrame `telco_df`, convert it to pandas and perform EDA as fo
 
 
 
-### C2. What Unity Catalog Governs
+### What Unity Catalog Governs
 
 For ML projects, this means training data, feature tables, and models can share a unified governance model in UC, while related assets such as notebooks and dashboards can still appear in lineage and discovery experiences.
 
@@ -233,7 +233,9 @@ For ML projects, this means training data, feature tables, and models can share 
 
  [Jump back to the overview](#overview)
 
-### C2. Why Governance Matters for ML
+
+
+### Why Governance Matters for ML
 
 ML projects touch many asset types: training data, feature tables, notebooks, models, dashboards, and increasingly AI agents and MCP servers. Without unified governance you end up answering the same questions for each system separately:
 
@@ -255,7 +257,7 @@ ML projects touch many asset types: training data, feature tables, notebooks, mo
 
 
 
-### C3. The Three-Level Namespace
+### The Three-Level Namespace
 
 Every object in UC is addressed as `catalog.schema.object`. The hierarchy below shows how assets are organized.
 
@@ -270,7 +272,7 @@ SELECT current_catalog() AS catalog, current_schema() AS schema;
 
  [Jump back to the overview](#overview)
 
-### C4. Permissions on a Delta Table
+### Permissions on a Delta Table
 
 UC permissions use standard SQL `GRANT` / `REVOKE`. Common privileges for ML data:
 
@@ -292,9 +294,9 @@ GRANT SELECT
 
 
 
-## D. Delta Lake
+## Delta Lake for ML
 
-### D1. What Delta Lake Is and the Features You Will Use
+### What Delta Lake Is and the Features You Will Use
 
 **Delta Lake** is the open-source storage format that is the **default** for tables on Databricks. It is the layer that makes a data lake reliable enough to use as a *system of record* — including for ML training data.
 
@@ -327,7 +329,7 @@ The following features are used in this module's demo and lab:
 
  [Jump back to the overview](#overview)
 
-### D2. Writing a Delta Table
+### Writing a Delta Table
 
 `saveAsTable(...)` writes Delta by default and registers the table in your current UC catalog and schema. Two write options are worth knowing:
 
@@ -350,7 +352,7 @@ print(f"Wrote Delta table: {full_table_path}")
 
  [Jump back to the overview](#overview)
 
-### D3. Time Travel in Practice
+### Time Travel in Practice
 
 Every write to a Delta table creates a new **version**. `DESCRIBE HISTORY` lists all versions; reads can specify any prior version by number or timestamp. This is the mechanism that makes training data **reproducible** — if you trained a model on Monday's snapshot and want to retrain on exactly the same input two weeks later, you can.
 
@@ -391,7 +393,7 @@ print(f"Version 0 rows: {telco_v0.count():,}   Columns: {len(telco_v0.columns)}"
 
  [Jump back to the overview](#overview)
 
-## E. Conclusion
+## Conclusion
 
 In this lecture, you covered the four platform building blocks that underpin every demo and lab in this module:
 
